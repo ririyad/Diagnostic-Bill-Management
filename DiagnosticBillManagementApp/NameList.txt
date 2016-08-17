@@ -1,0 +1,23 @@
+﻿// This is the list of all names that includes event names(e.g. TextBox, Button, Table etc,),
+//all Properties and methods for better understnading. This names have to write with proper 
+//identation.
+//Only name will be included here. The action of any method must be written in the 
+// specific code by commenting.
+
+Layer: UI
+	Home.aspx
+	TestTypeSetup.aspx
+		typeNameTextBox
+		saveButton
+		showTypeNameGridView
+	TestSetup.aspx
+	TestRequestEntry.aspx
+	Payment.aspx
+	TestWiseReport.aspx
+	TypeWiseReport.aspx
+	UnpaidBillReport.aspx
+
+Layer: BLL
+
+Layer: DAL
+	
