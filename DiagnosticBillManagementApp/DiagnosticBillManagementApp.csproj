@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="BLL\TestTypeManager.cs" />
     <Compile Include="DAL\TestTypeGateWay.cs" />
+    <Compile Include="Model\Tests.cs" />
     <Compile Include="Model\TestType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Home.aspx.cs">

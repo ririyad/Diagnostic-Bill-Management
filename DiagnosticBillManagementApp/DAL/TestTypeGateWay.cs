@@ -53,20 +53,21 @@ namespace DiagnosticBillManagementApp.DAL
             connection.Open();
 
             SqlDataReader reader = command.ExecuteReader();
-            List<TestType> tests = new List<TestType>();
+            List<TestType> testTypes = new List<TestType>();
             if(reader.HasRows)
             {
                 while(reader.Read())
                 {
                     TestType testType = new TestType();
+                    testType.Id = int.Parse(reader["Id"].ToString());
                     testType.TypeName = reader["TypeName"].ToString();
-                    tests.Add(testType);
+                    testTypes.Add(testType);
                 }
                 reader.Close();
             }
             connection.Close();
 
-            return tests;
+            return testTypes;
         }
     }
 }
