@@ -14,27 +14,27 @@ namespace DiagnosticBillManagementApp.UI
         TestTypeManager testTypeManager = new TestTypeManager();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LoadTypeNameGridView();
         }
 
-        protected void saveButton_Click(object sender, EventArgs e)
+        protected void saveButton_Click1(object sender, EventArgs e)
         {
             TestType testType = new TestType();
 
             testType.TypeName = typeNameTextBox.Text;
 
-            if(testType.TypeName == "test")
+            if (testType.TypeName == "test")
             {
-                warningMesageLabel.Text = "Please enter the name type!";
+                warningMessageLabel.Text = "Please enter the name type!";
             }
 
             else
             {
                 // check if the name is already exist in the database.
                 bool isAlreadyExist = testTypeManager.TypeNameAlereadyExist(testType.ToString());
-                if(isAlreadyExist)
+                if (isAlreadyExist)
                 {
-                    warningMesageLabel.Text = "This type already exist in the database!";
+                    warningMessageLabel.Text = "This type already exist in the database!";
                 }
                 else
                 {
@@ -48,12 +48,11 @@ namespace DiagnosticBillManagementApp.UI
 
                     else
                     {
-                        warningMesageLabel.Text = "Name is failed to save!";
+                        warningMessageLabel.Text = "Name is failed to save!";
                     }
                 }
-                
-            }
 
+            }
 
         }
 
