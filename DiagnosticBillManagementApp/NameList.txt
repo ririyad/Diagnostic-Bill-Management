@@ -11,6 +11,10 @@ Layer: UI
 		saveButton
 		showTypeNameGridView
 	TestSetup.aspx
+		testNameTextBox
+		feeTextBox
+		testTypeDropDown
+		showTestInfoGridView
 	TestRequestEntry.aspx
 	Payment.aspx
 	TestWiseReport.aspx
