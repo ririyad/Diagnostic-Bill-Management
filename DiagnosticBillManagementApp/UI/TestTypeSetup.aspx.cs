@@ -23,9 +23,9 @@ namespace DiagnosticBillManagementApp.UI
 
             testType.TypeName = typeNameTextBox.Text;
 
-            if(testType.TypeName == "")
+            if(testType.TypeName == "test")
             {
-                messgaeLabel.Text = "Please enter the name type!";
+                warningMesageLabel.Text = "Please enter the name type!";
             }
 
             else
@@ -34,7 +34,7 @@ namespace DiagnosticBillManagementApp.UI
                 bool isAlreadyExist = testTypeManager.TypeNameAlereadyExist(testType.ToString());
                 if(isAlreadyExist)
                 {
-                    messgaeLabel.Text = "This type already exist in the database!";
+                    warningMesageLabel.Text = "This type already exist in the database!";
                 }
                 else
                 {
@@ -48,7 +48,7 @@ namespace DiagnosticBillManagementApp.UI
 
                     else
                     {
-                        messgaeLabel.Text = "Name is failed to save!";
+                        warningMesageLabel.Text = "Name is failed to save!";
                     }
                 }
                 
