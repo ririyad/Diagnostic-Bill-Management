@@ -14,7 +14,10 @@ namespace DiagnosticBillManagementApp.UI
         TestTypeManager testTypemanager = new TestTypeManager();
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadDepartmentDropDown();
+            if(!IsPostBack)
+            {
+                LoadDepartmentDropDown();
+            }
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
