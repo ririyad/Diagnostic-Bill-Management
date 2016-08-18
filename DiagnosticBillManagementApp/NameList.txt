@@ -16,6 +16,12 @@ Layer: UI
 		testTypeDropDown
 		showTestInfoGridView
 	TestRequestEntry.aspx
+		patientNameTextBox
+		dateBirthTextBox
+		testTypeDropDown
+		feeTextBox
+		saveButton
+		showTestRequestGridView
 	Payment.aspx
 	TestWiseReport.aspx
 	TypeWiseReport.aspx
