@@ -50,7 +50,33 @@
                 <asp:Button ID="saveButton" runat="server" Text="Save" Width="102px" OnClick="saveButton_Click" />
 
             </fieldset>
-            <asp:GridView ID="showTestInfoGridView" runat="server" AutoGenerateColumns="False"></asp:GridView>
+            <asp:GridView ID="showTestInfoGridView" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:TemplateField HeaderText="SL">
+                        <ItemTemplate>
+                        <%#Container.DataItemIndex+1 %>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Test Name">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text='<%#Eval("Test Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Fee">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text='<%#Eval("Fee") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Test Type">
+                        <ItemTemplate>
+                            <asp:Label runat="server" Text='<%#Eval("TypeName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </fieldset>
     
     </div>

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace DiagnosticBillManagementApp.DAL
 {
-    public class TestTypeGateWay
+    public class TestGateWay
     {
         string connectionString = "Server=DESKTOP-N3N0UFQ;Database=DiagnosticCenterBillManagementDB;Integrated Security=true";
 
@@ -68,6 +68,35 @@ namespace DiagnosticBillManagementApp.DAL
             connection.Close();
 
             return testTypes;
+        }
+
+        public List<ViewTestsWithTypes> GetAllTestsWithTypes()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            string query = "SELECT * FROM ViewTestsWithTypes";
+            SqlCommand command = new SqlCommand(query, connection);
+            List<ViewTestsWithTypes> testsWithTypes = new List<ViewTestsWithTypes>();
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    ViewTestsWithTypes testWithType = new ViewTestsWithTypes();
+                    testWithType.TestId = int.Parse(reader["TestId"].ToString());
+                    testWithType.TypeName = reader["TestName"].ToString();
+                    testWithType.Fee = int.Parse(reader["Fee"].ToString());
+                    testWithType.TypeNameId = int.Parse(reader["TypeNameId"].ToString());
+                    testWithType.TypeName = reader["TypeName"].ToString();
+
+                    testsWithTypes.Add(testWithType);
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+            return testsWithTypes;
         }
     }
 }

@@ -9,14 +9,17 @@ using System.Web.UI.WebControls;
 
 namespace DiagnosticBillManagementApp.UI
 {
+    
     public partial class TestSetup : System.Web.UI.Page
     {
-        TestTypeManager testTypemanager = new TestTypeManager();
+        TestManager testManager = new TestManager();
+        TestSetupManager testSetupmanager = new TestSetupManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-                LoadDepartmentDropDown();
+                LoadTestsWithTypes();
+                LoadTypeNameDropDown();
             }
         }
 
@@ -25,14 +28,17 @@ namespace DiagnosticBillManagementApp.UI
             Tests tests = new Tests();
             tests.TestName = testNameTextBox.Text;
             tests.Fee = Convert.ToInt32(feeTextBox.Text);
+            tests.TypeNameId = Convert.ToInt32(testTypeDropDown.SelectedValue);
+
+            bool isSaved = testSetupmanager.Save(tests);
         }
 
         public List<TestType> GetTypeNameList()
         {
-            return testTypemanager.GetTypeNameList();
+            return testManager.GetTypeNameList();
         }
 
-        private void LoadDepartmentDropDown()
+        private void LoadTypeNameDropDown()
         {
             List<TestType> testTypes = GetTypeNameList();
             testTypeDropDown.DataSource = testTypes;
@@ -40,6 +46,11 @@ namespace DiagnosticBillManagementApp.UI
             testTypeDropDown.DataTextField = "TypeName";
             testTypeDropDown.DataBind();
 
+        }
+
+        private void LoadTestsWithTypes()
+        {
+            List<ViewTestsWithTypes> testsWithTypes = testManager.GetAllTestsWithTypes();
         }
     }
 }

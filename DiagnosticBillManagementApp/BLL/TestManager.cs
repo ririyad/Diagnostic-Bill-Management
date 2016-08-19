@@ -8,20 +8,20 @@ using System.Web;
 namespace DiagnosticBillManagementApp.BLL
 {
     
-    public class TestTypeManager
+    public class TestManager
     {
-        TestTypeGateWay testTypeGateway = new TestTypeGateWay();
+        TestGateWay testGateway = new TestGateWay();
         
         public bool Save(TestType testType)
         {
-            bool isSaved = testTypeGateway.Save(testType) > 0;
+            bool isSaved = testGateway.Save(testType) > 0;
 
             return isSaved;
         }
 
         public bool TypeNameAlereadyExist(string typeName)
         {
-            TestType testType = testTypeGateway.GetTypeName(typeName);
+            TestType testType = testGateway.GetTypeName(typeName);
             if(testType == null)
             {
                 return false;
@@ -34,8 +34,13 @@ namespace DiagnosticBillManagementApp.BLL
 
         public List<TestType> GetTypeNameList()
         {
-            List<TestType> tests = testTypeGateway.GetTypeNameList();
+            List<TestType> tests = testGateway.GetTypeNameList();
             return tests;
+        }
+
+        public List<ViewTestsWithTypes> GetAllTestsWithTypes()
+        {
+            return testGateway.GetAllTestsWithTypes();
         }
     }
 }

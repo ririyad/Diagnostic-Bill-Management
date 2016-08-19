@@ -11,7 +11,7 @@ namespace DiagnosticBillManagementApp.UI
 {
     public partial class TestTypeSetup : System.Web.UI.Page
     {
-        TestTypeManager testTypeManager = new TestTypeManager();
+        TestManager testTypeManager = new TestManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadTypeNameGridView();
@@ -62,5 +62,7 @@ namespace DiagnosticBillManagementApp.UI
             showTypeNameGridView.DataSource = types;
             showTypeNameGridView.DataBind();
         }
+
+
     }
 }
