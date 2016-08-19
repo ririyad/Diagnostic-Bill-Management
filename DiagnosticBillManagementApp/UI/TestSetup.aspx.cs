@@ -51,6 +51,8 @@ namespace DiagnosticBillManagementApp.UI
         private void LoadTestsWithTypes()
         {
             List<ViewTestsWithTypes> testsWithTypes = testManager.GetAllTestsWithTypes();
+            showTestInfoGridView.DataSource = testsWithTypes;
+            showTestInfoGridView.DataBind();
         }
     }
 }
