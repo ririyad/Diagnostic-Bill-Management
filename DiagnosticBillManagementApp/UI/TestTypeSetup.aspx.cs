@@ -23,9 +23,10 @@ namespace DiagnosticBillManagementApp.UI
 
             testType.TypeName = typeNameTextBox.Text;
 
-            if (testType.TypeName == "test")
+            if (testType.TypeName == "")
             {
                 warningMessageLabel.Text = "Please enter the name type!";
+                return;
             }
 
             else
@@ -35,6 +36,7 @@ namespace DiagnosticBillManagementApp.UI
                 if (isAlreadyExist)
                 {
                     warningMessageLabel.Text = "This type already exist in the database!";
+                    return;
                 }
                 else
                 {
@@ -53,6 +55,8 @@ namespace DiagnosticBillManagementApp.UI
                 }
 
             }
+
+            LoadTypeNameGridView();
 
         }
 

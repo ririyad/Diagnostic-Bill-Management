@@ -31,6 +31,16 @@ namespace DiagnosticBillManagementApp.UI
             tests.TypeNameId = Convert.ToInt32(testTypeDropDown.SelectedValue);
 
             bool isSaved = testSetupmanager.Save(tests);
+            if(isSaved)
+            {
+                messgaeLabel.Text = "Data saved successfully";
+            }
+
+            else
+            {
+                messgaeLabel.Text = "Data save failed!";
+            }
+            LoadTestsWithTypes();
         }
 
         public List<TestType> GetTypeNameList()

@@ -21,7 +21,7 @@ namespace DiagnosticBillManagementApp.BLL
 
         public bool TypeNameAlereadyExist(string typeName)
         {
-            TestType testType = testGateway.GetTypeName(typeName);
+            TestType testType = GetTypeName(typeName);
             if(testType == null)
             {
                 return false;
@@ -30,6 +30,11 @@ namespace DiagnosticBillManagementApp.BLL
             {
                 return true;
             }
+        }
+
+        public TestType GetTypeName(string type)
+        {
+            return testGateway.GetTypeName(type);
         }
 
         public List<TestType> GetTypeNameList()
